@@ -1,0 +1,89 @@
+name:                aoc2024
+version:             0.1.0.0
+github:              "mosiac1/aoc2024"
+license:             BSD-3-Clause
+author:              "Cristian Osiac"
+maintainer:          "osiaccr@gmail.com"
+copyright:           "Apache License, Version 2.0"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/mosiac1/aoc2024#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- split
+- regex-base
+- regex-posix
+- containers
+- random
+- MonadRandom
+- ghc-lib-parser
+- pretty-simple
+- array
+- transformers
+- time
+- ansi-terminal
+- directory
+- optparse-applicative
+- parser-combinators
+- attoparsec
+- containers
+- text
+- mtl
+- vector
+- pqueue
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+  default-extensions:
+    - LambdaCase
+    - MultiWayIf
+    - RecordWildCards
+    - OverloadedRecordDot
+    - GADTs
+    - GHC2021
+
+executables:
+  aoc2024-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N4
+    - -with-rtsopts=-qa
+    - -with-rtsopts=-C0
+    - -funfolding-use-threshold=16
+    - -fexcess-precision
+    - -optc-O3
+    - -optc-ffast-math
+    - -O2
+    default-extensions:
+    - LambdaCase
+    - MultiWayIf
+    - RecordWildCards
+    - OverloadedRecordDot
+    - GADTs
+    dependencies:
+    - aoc2024

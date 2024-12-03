@@ -1,0 +1,132 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           aoc2024
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/mosiac1/aoc2024#readme>
+homepage:       https://github.com/mosiac1/aoc2024#readme
+bug-reports:    https://github.com/mosiac1/aoc2024/issues
+author:         Cristian Osiac
+maintainer:     osiaccr@gmail.com
+copyright:      Apache License, Version 2.0
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/mosiac1/aoc2024
+
+library
+  exposed-modules:
+      Days.Day1
+      Days.Day10
+      Days.Day11
+      Days.Day12
+      Days.Day13
+      Days.Day14
+      Days.Day15
+      Days.Day16
+      Days.Day17
+      Days.Day18
+      Days.Day19
+      Days.Day2
+      Days.Day20
+      Days.Day21
+      Days.Day22
+      Days.Day23
+      Days.Day24
+      Days.Day25
+      Days.Day3
+      Days.Day4
+      Days.Day5
+      Days.Day6
+      Days.Day7
+      Days.Day8
+      Days.Day9
+      Program.Color
+      Program.RunDay
+      Util.Util
+  other-modules:
+      Paths_aoc2024
+  autogen-modules:
+      Paths_aoc2024
+  hs-source-dirs:
+      src
+  default-extensions:
+      LambdaCase
+      MultiWayIf
+      RecordWildCards
+      OverloadedRecordDot
+      GADTs
+      GHC2021
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      MonadRandom
+    , ansi-terminal
+    , array
+    , attoparsec
+    , base >=4.7 && <5
+    , containers
+    , directory
+    , ghc-lib-parser
+    , mtl
+    , optparse-applicative
+    , parser-combinators
+    , pqueue
+    , pretty-simple
+    , random
+    , regex-base
+    , regex-posix
+    , split
+    , text
+    , time
+    , transformers
+    , vector
+  default-language: Haskell2010
+
+executable aoc2024-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_aoc2024
+  autogen-modules:
+      Paths_aoc2024
+  hs-source-dirs:
+      app
+  default-extensions:
+      LambdaCase
+      MultiWayIf
+      RecordWildCards
+      OverloadedRecordDot
+      GADTs
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N4 -with-rtsopts=-qa -with-rtsopts=-C0 -funfolding-use-threshold=16 -fexcess-precision -optc-O3 -optc-ffast-math -O2
+  build-depends:
+      MonadRandom
+    , ansi-terminal
+    , aoc2024
+    , array
+    , attoparsec
+    , base >=4.7 && <5
+    , containers
+    , directory
+    , ghc-lib-parser
+    , mtl
+    , optparse-applicative
+    , parser-combinators
+    , pqueue
+    , pretty-simple
+    , random
+    , regex-base
+    , regex-posix
+    , split
+    , text
+    , time
+    , transformers
+    , vector
+  default-language: Haskell2010

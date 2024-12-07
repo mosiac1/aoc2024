@@ -3,19 +3,12 @@ module Days.Day1
   ) where
 
 {- ORMOLU_DISABLE -}
-import Data.List
 import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
-import Data.Maybe
-import Data.Set (Set)
-import qualified Data.Set as Set
-import Data.Vector (Vector)
-import qualified Data.Vector as Vec
-import qualified Util.Util as U
-
-import Data.Attoparsec.Text
-import Data.Void
+import Util.Util (parseInt, headAndTail)
+import Data.List (sort)
 import qualified Program.RunDay as R (Day, runDay)
+import Data.Maybe (fromMaybe)
 
 {- ORMOLU_ENABLE -}
 runDay :: R.Day
@@ -23,10 +16,10 @@ runDay = R.runDay inputParser partA partB
 
 ------------ PARSER ------------
 inputParser :: String -> Input
-inputParser = error "Not implemented yet!"
+inputParser = unzip . map (headAndTail . map parseInt . words) . lines
 
 ------------ TYPES ------------
-type Input = Void
+type Input = ([Int], [Int])
 
 type OutputA = Int
 
@@ -34,8 +27,12 @@ type OutputB = Int
 
 ------------ PART A ------------
 partA :: Input -> OutputA
-partA = error "Not implemented yet!"
+partA (left, right) = sum $ map abs $ zipWith (-) (sort left) (sort right)
 
 ------------ PART B ------------
 partB :: Input -> OutputB
-partB = error "Not implemented yet!"
+partB (left, right) =
+  let
+    rightFreq = Map.fromListWith (+) [(lid, 1) | lid <- right]
+  in
+    sum $ map (\lid -> lid * fromMaybe 0 ((`Map.lookup` rightFreq) lid)) left

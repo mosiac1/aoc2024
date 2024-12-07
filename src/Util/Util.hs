@@ -39,3 +39,6 @@ allPairs xs = [(x, y) | (x:rest) <- tails xs, y <- rest]
 
 prependDigit :: Int -> Int -> Int
 prependDigit digit originalNumber = read (show digit ++ show originalNumber)
+
+deleteAt :: Int -> [a] -> [a]
+deleteAt i xs = take i xs ++ drop (i + 1) xs
